@@ -12,8 +12,7 @@ class TestWebPage:
     expected_content = "Welcome to Holiday Homes"
 
     @pytest.mark.django_db
-    def test_page(self):
-        client = Client()
+    def test_page(self, client):
 
         path = reverse(self.url)
         response = client.get(path)

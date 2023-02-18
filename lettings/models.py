@@ -11,6 +11,7 @@ class Address(models.Model):
         validators=[MaxValueValidator(99999)])
     country_iso_code = models.CharField(max_length=3,
                                         validators=[MinLengthValidator(3)])
+    objects = models.Manager()  # Only useful for pycharm developing
 
     class Meta:
         verbose_name_plural = 'Addresses'
@@ -22,6 +23,7 @@ class Address(models.Model):
 class Letting(models.Model):
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
+    objects = models.Manager()  # Only useful for pycharm developing
 
     def __str__(self):
         return self.title
