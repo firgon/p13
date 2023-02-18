@@ -3,7 +3,6 @@
 from django.db import migrations
 
 from lettings.models import Address
-from oc_lettings_site import models
 
 
 def import_addresses(apps, schema):
