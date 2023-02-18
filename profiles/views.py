@@ -20,4 +20,3 @@ def profile(request, username):
     detail_profile = Profile.objects.get(user__username=username)
     context = {'profile': detail_profile}
     return render(request, 'profiles/profile.html', context)
-

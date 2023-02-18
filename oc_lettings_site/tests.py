@@ -1,9 +1,9 @@
 import pytest
-from django.test import Client
+# from django.test import Client
 from django.urls import reverse
 
 
-def convert_to_title(title: str)-> str:
+def convert_to_title(title: str) -> str:
     return f"<h1>{title}</h1>"
 
 
@@ -19,4 +19,3 @@ class TestWebPage:
         content = response.content.decode()
         assert response.status_code == 200
         assert convert_to_title(self.expected_content) in content
-
