@@ -1,11 +1,15 @@
 FROM python:3.8.16-alpine3.17
 
-ADD . /app/
+WORKDIR /app
+COPY requirements.txt /app
 
-WORKDIR /app/
+RUN pip install -r requirements.txt --no-cache-dir
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY . /app
 
 EXPOSE 8000
 
-CMD [ "python", "manage.py runserver" ]
+#CMD [ "python", "manage.py", "runserver" ]
+
+ENTRYPOINT ["python3"]
+CMD ["manage.py", "runserver"]
