@@ -51,5 +51,5 @@ workflows:
       - build-and-test
       
       - docker/publish:
-          deploy: false
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          tag: $CIRCLE_SHA1
