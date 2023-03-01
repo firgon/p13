@@ -58,6 +58,7 @@ workflows:
           tag: $CIRCLE_SHA1
           requires:
             - build-and-test
+
           filters:
             branches:
               only: master
