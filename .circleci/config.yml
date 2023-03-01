@@ -52,10 +52,4 @@ workflows:
       
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
-          auth:
-            username: $DOCKER_USERNAME
-            password: $DOCKER_PASSWORD
           tag: $CIRCLE_SHA1
-          requires:
-            - build-and-test
-
