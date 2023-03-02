@@ -82,7 +82,4 @@ workflows:
       - heroku/push-docker-image:
           requires:
             - docker/publish
-          filters:
-            branches:
-              only: master
 
