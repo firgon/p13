@@ -81,6 +81,7 @@ workflows:
 
       - heroku/deploy-via-git:
           app-name: p13-website
+          force: true
           requires:
             - docker/publish
 
