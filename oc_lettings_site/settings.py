@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,6 +16,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 DEBUG = True
 
 ALLOWED_HOSTS = ['p13-website.herokuapp.com']
+
+django_heroku.settings(locals())
 
 
 # Application definition
