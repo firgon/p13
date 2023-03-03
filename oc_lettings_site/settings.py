@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 # SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['p13-website.herokuapp.com']
 
