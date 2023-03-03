@@ -3,7 +3,6 @@ FROM python:3.8.16-alpine3.17
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DEBUG 0
 
 WORKDIR /app
 COPY requirements.txt /app
