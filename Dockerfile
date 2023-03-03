@@ -7,9 +7,18 @@ RUN pip install -r requirements.txt --no-cache-dir
 
 COPY . /app
 
-EXPOSE 8000
+# not supported by heroku
+# EXPOSE 8000
 
-#CMD [ "python", "manage.py", "runserver" ]
+# Run the image as a non-root user
+RUN adduser -D myuser
+USER myuser
 
-ENTRYPOINT ["python3"]
-CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+# Run the app.  CMD is required to run on Heroku
+# $PORT is set by Heroku			
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi 
+
+# #CMD [ "python", "manage.py", "runserver" ]
+
+# ENTRYPOINT ["python3"]
+# CMD ["manage.py", "runserver", "0.0.0.0:8000"]
