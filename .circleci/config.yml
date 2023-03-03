@@ -79,7 +79,8 @@ workflows:
             branches:
               only: master
 
-      - heroku/push-docker-image:
+      - heroku/deploy-via-git:
+          app-name: p13-website
           requires:
             - docker/publish
 
