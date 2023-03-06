@@ -1,4 +1,5 @@
 import os
+import mimetypes
 from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -14,15 +15,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # if not IS_HEROKU:
-DEBUG = True
+DEBUG = False
 
 # Generally avoid wildcards(*). However since Heroku router provides hostname validation it is ok
 if IS_HEROKU:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-
+mimetypes.add_type("text/css", ".css", True)
 # Application definition
 
 INSTALLED_APPS = [
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'oc_lettings_site.apps.OCLettingsSiteConfig',
     'lettings',
@@ -117,6 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+print("voici mon répertoire root static", STATIC_ROOT)
 STATIC_URL = "static/"
 
 # Enable WhiteNoise's GZip compression of static assets.
