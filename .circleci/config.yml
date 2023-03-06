@@ -80,6 +80,7 @@ workflows:
               only: master
 
       - deploy-heroku:
-          # requires:
+          requires:
             # - docker/publish
+            - build-and-test
 
