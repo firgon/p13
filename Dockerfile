@@ -21,6 +21,8 @@ COPY . /app
 RUN adduser -D myuser
 USER myuser
 
+
+CMD ["python", "oc_lettings_site/manage.py", "collectstatic", "--noinput"]
 # run gunicorn
 CMD gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
 
