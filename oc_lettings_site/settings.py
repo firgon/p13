@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +19,7 @@ if not IS_HEROKU:
 if IS_HEROKU:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
@@ -116,8 +115,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-print("Static root est", STATIC_ROOT)
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 #
 # # Enable WhiteNoise's GZip compression of static assets.
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
