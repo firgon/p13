@@ -22,14 +22,9 @@ RUN adduser -D myuser
 USER myuser
 
 
-CMD ["python", "oc_lettings_site/manage.py", "collectstatic", "--noinput"]
+CMD ["python", "manage.py", "collectstatic", "--noinput"]
 # run gunicorn
 CMD gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
-
-# #CMD [ "python", "manage.py", "runserver" ]
-
-# ENTRYPOINT ["python3"]
-# CMD ["manage.py", "runserver", "0.0.0.0:8000"]
 
 # HOW TO SEND TO HEROKU
 # docker tag <image> registry.heroku.com/<app>/<process-type>

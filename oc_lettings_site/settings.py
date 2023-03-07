@@ -23,7 +23,6 @@ if IS_HEROKU:
 else:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-mimetypes.add_type("text/css", ".css", True)
 # Application definition
 
 INSTALLED_APPS = [
