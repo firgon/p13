@@ -119,7 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-print("voici mon répertoire root static", STATIC_ROOT)
 STATIC_URL = "static/"
 
 # Enable WhiteNoise's GZip compression of static assets.
