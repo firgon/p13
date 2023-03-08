@@ -11,11 +11,18 @@ orbs:
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
   python: circleci/python@2.1.1
   docker: circleci/docker@2.2.0
-  # heroku: circleci/heroku@2.0.0
+  heroku: circleci/heroku@2.0.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
+  heroku-deployment:
+      executor: heroku/default
+      steps:
+        - checkout
+        - heroku/install
+        - heroku/deploy-via-git
+
   deploy-heroku:
     machine: true
     steps:
@@ -64,13 +71,9 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-#      - debug
       
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
-#          auth:
-#            username: $DOCKER_USERNAME
-#            password: $DOCKER_PASSWORD
           tag: $CIRCLE_SHA1
           requires:
             - build-and-test
@@ -79,7 +82,9 @@ workflows:
             branches:
               only: master
 
-      - deploy-heroku:
+      - heroku-deployment:
           requires:
-            - docker/publish
+             - docker/publish
+
+
 
