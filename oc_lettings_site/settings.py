@@ -22,7 +22,6 @@ if IS_HEROKU:
 else:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
-mimetypes.add_type("text/html", ".css", True)
 # Application definition
 
 INSTALLED_APPS = [
@@ -119,9 +118,9 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static/'),
+# ]
 
 #
 # # Enable WhiteNoise's GZip compression of static assets.
