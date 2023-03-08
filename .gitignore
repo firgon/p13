@@ -4,4 +4,4 @@ venv
 sqlite3.exe
 .idea
 /misc
-staticfiles
+staticfiles/admin
