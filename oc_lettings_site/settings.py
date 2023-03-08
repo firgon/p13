@@ -121,6 +121,6 @@ STATIC_URL = "/static/"
 #     os.path.join(BASE_DIR, 'static/'),
 # ]
 
-#
-# # Enable WhiteNoise's GZip compression of static assets.
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Enable WhiteNoise's GZip compression of static assets.
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
