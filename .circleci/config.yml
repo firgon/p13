@@ -78,14 +78,13 @@ workflows:
           requires:
             - build-and-test
 
-#          filters:
-#            branches:
-#              only: master
+          filters:
+            branches:
+              only: master
 
       - heroku-deployment:
           requires:
-            # - docker/publish
-            - build-and-test
+             - docker/publish
 
 
 
