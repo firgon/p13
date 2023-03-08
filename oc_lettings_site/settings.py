@@ -1,4 +1,5 @@
 import os
+import mimetypes
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +22,7 @@ if IS_HEROKU:
 else:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
+mimetypes.add_type("text/html", ".css", True)
 # Application definition
 
 INSTALLED_APPS = [
