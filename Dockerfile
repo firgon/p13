@@ -15,8 +15,6 @@ COPY . /app
 # not supported by heroku
 EXPOSE 8000
 
-# Run the app.  CMD is required to run on Heroku
-# $PORT is set by Heroku			
 # add and run as non-root user
 RUN adduser -D myuser
 USER myuser
@@ -25,9 +23,8 @@ USER myuser
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+
+# Run the app.  CMD is required to run on Heroku
+# $PORT is set by Heroku
 # run gunicorn
 CMD gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
-
-# HOW TO SEND TO HEROKU
-# docker tag <image> registry.heroku.com/<app>/<process-type>
-# docker push registry.heroku.com/<app>/<process-type>
