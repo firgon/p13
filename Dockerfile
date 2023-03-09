@@ -15,14 +15,12 @@ COPY . /app
 # not supported by heroku
 EXPOSE 8000
 
-# add and run as non-root user
-RUN adduser -D myuser
-USER myuser
-
-
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+# add and run as non-root user
+RUN adduser -D myuser
+USER myuser
 
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
