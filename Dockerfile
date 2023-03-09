@@ -22,8 +22,9 @@ RUN adduser -D myuser
 USER myuser
 
 
-#CMD ["python", "app/manage.py", "collectstatic", "--noinput"]
-CMD ["python", "manage.py", "collectstatic"]
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
 # run gunicorn
 CMD gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
 
