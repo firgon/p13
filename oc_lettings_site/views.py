@@ -11,3 +11,7 @@ from django.shortcuts import render
 # non finibus neque cursus id.
 def index(request):
     return render(request, 'index.html')
+
+
+def sentry(request):
+    raise Exception('Non-implemented view')

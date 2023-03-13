@@ -4,3 +4,4 @@ pytest-django==3.9.0
 six
 gunicorn
 whitenoise
+sentry-sdk

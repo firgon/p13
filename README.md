@@ -75,3 +75,25 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## Déploiement
+
+### Principe Général
+
+Pour déployer une nouvelle version du site :
+- Pushez le nouveau code sur le repository Github (`https://github.com/firgon/p13`)
+- (Automatique) Circle CI détecte la modification et lance :
+  - Pytest
+  - Flake8
+  - (S'il n'y a pas eu d'erreur et que le push a été fait sur la branche master) Build un nouveau container et le dépose sur DockerHub
+  - (Si l'étape précédente s'est bien déroulée) Déploie le nouveau code sur Heroku
+
+En conséquence, pour qu'un déploiement se déroule sans difficultés, veillez à bien pusher sur la branche master du repository Github et vous être assurés en local que pytest et Flake8 ne renvoyaient pas d'erreur.
+
+CircleCi est configuré pour suivre les changements effectués sur le repository GitHub.
+Il dispose des variables d'environnements DOCKER_USERNAME, DOCKER_PASSWORD, HEROKU_API_KEY, HEROKU_APP_NAME qu'il conviendra de maintenir à jour.
+
+Heroku est configuré pour recevoir le code de notre application. 
+Il stocke dans les variables du projet la SECRET_KEY de l'application Django.
+Heroku fournit un PORT dynamique à notre application, lors d'un lancement du container en local, il faudra fournir cette variable d'environnement sous la forme 
+`--env PORT=8000` par exemple
