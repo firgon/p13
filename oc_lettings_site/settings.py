@@ -128,18 +128,14 @@ STATIC_URL = "/static/"
 # Enable WhiteNoise's GZip compression of static assets.
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-sentry_sdk.init(
-    dsn=os.environ.get("sentry_key"),
-    integrations=[
-        DjangoIntegration(),
-    ],
-
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0,
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
+# sentry_sdk.init(
+#     dsn=os.environ.get("sentry_key"),
+#     integrations=[
+#         DjangoIntegration(),
+#     ],
+#
+#     # Set traces_sample_rate to 1.0 to capture 100%
+#     # of transactions for performance monitoring.
+#     # We recommend adjusting this value in production.
+#     traces_sample_rate=1.0,
+# )
