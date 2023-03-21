@@ -40,7 +40,7 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-               - run:
+      - run:
           name: Run tests
           command: pytest
       - run:
