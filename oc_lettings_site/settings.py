@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 
-TEST = 'Soutenance'
+TEST = 'test'
 
 
 # Database
