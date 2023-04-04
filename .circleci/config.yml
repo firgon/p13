@@ -20,17 +20,17 @@ jobs:
         - heroku/install
         - heroku/deploy-via-git
 
-  deploy-heroku:
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: Send image to heroku
-          command: |
-            sudo curl https://cli-assets.heroku.com/install.sh | sh
-            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:login
-            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:push -a p13-website web
-            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:release -a p13-website web
+#  deploy-heroku:
+#    machine: true
+#    steps:
+#      - checkout
+#      - run:
+#          name: Send image to heroku
+#          command: |
+#            sudo curl https://cli-assets.heroku.com/install.sh | sh
+#            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:login
+#            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:push -a p13-website web
+#            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:release -a p13-website web
 
   build-and-test:
     docker:
